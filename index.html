@@ -1,124 +1,669 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pori Chinese Move Together</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Pori Chinese Move Together</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #f4f6f4;
-      color: #1f3027;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
 
-    .card {
-      width: 90%;
-      max-width: 430px;
-      background: white;
-      border-radius: 28px;
-      padding: 38px 30px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-      text-align: center;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    .logo {
-      font-size: 48px;
-      margin-bottom: 8px;
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #eef5f0 0%, #f8faf8 100%);
+    color: #18352a;
+}
 
-    h1 {
-      font-size: 30px;
-      margin: 0 0 12px;
-    }
+.container {
+    width: 92%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 28px 0 40px;
+}
 
-    .names {
-      font-size: 17px;
-      color: #68746e;
-      margin-bottom: 10px;
-    }
+/* 顶部 */
 
-    .slogan {
-      font-size: 18px;
-      line-height: 1.6;
-      margin: 0 0 30px;
-    }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 25px;
-    }
+.logo-small {
+    font-size: 26px;
+    font-weight: bold;
+}
 
-    button {
-      border: none;
-      border-radius: 14px;
-      padding: 14px 28px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+.language-switch {
+    display: flex;
+    gap: 5px;
+}
 
-    .primary {
-      background: #21382c;
-      color: white;
-    }
+.language-switch button {
+    border: 1px solid #d5e1da;
+    background: white;
+    color: #315344;
+    border-radius: 10px;
+    padding: 7px 9px;
+    font-size: 12px;
+}
 
-    .secondary {
-      background: #edf0ed;
-      color: #21382c;
-    }
+/* 主欢迎区 */
 
-    .info {
-      font-size: 14px;
-      color: #7a837e;
-      line-height: 1.6;
-    }
-  </style>
+.hero {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 34px 25px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(25, 60, 45, 0.08);
+    margin-bottom: 22px;
+}
+
+.hero-icon {
+    font-size: 52px;
+    margin-bottom: 8px;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+}
+
+.names {
+    color: #74837b;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.hero-text {
+    font-size: 19px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+}
+
+/* 登录注册 */
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.primary {
+    background: #1f4936;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 13px 25px;
+    font-size: 16px;
+}
+
+.secondary {
+    background: #edf2ee;
+    color: #1f4936;
+    border: none;
+    border-radius: 14px;
+    padding: 13px 25px;
+    font-size: 16px;
+}
+
+/* 社区介绍 */
+
+.section-title {
+    font-size: 21px;
+    font-weight: bold;
+    margin: 26px 5px 14px;
+}
+
+.community {
+    background: #1f4936;
+    color: white;
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.community-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.community-text {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 运动项目 */
+
+.activities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.activity {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 15px;
+    box-shadow: 0 5px 18px rgba(25, 60, 45, 0.06);
+    text-align: center;
+    transition: transform 0.15s;
+}
+
+.activity:active {
+    transform: scale(0.97);
+}
+
+.activity-icon {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.activity-name {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.activity-text {
+    font-size: 12px;
+    color: #7a8780;
+    line-height: 1.4;
+}
+
+/* 底部 */
+
+.footer {
+    text-align: center;
+    color: #849089;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 28px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="card">
+<div class="container">
 
-    <div class="logo">💪</div>
+    <!-- 顶部 -->
 
-    <h1>Pori Chinese Move Together</h1>
+    <div class="header">
 
-    <div class="names">
-      Qiqi · Zhuzhu · Menghua
+        <div class="logo-small">
+            💪 Move Together
+        </div>
+
+        <div class="language-switch">
+
+            <button onclick="setLanguage('zh')">
+                中文
+            </button>
+
+            <button onclick="setLanguage('fi')">
+                Suomi
+            </button>
+
+            <button onclick="setLanguage('en')">
+                EN
+            </button>
+
+        </div>
+
     </div>
 
-    <p class="slogan">
-      Yhdessä liikkumaan,<br>
-      yhdessä pysymään liikkeessä.
-    </p>
 
-    <div class="buttons">
-      <button class="primary" onclick="alert('Rekisteröinti tulee pian!')">
-        Rekisteröidy
-      </button>
+    <!-- 欢迎区 -->
 
-      <button class="secondary" onclick="alert('Kirjautuminen tulee pian!')">
-        Kirjaudu
-      </button>
+    <div class="hero">
+
+        <div class="hero-icon">
+            🏃‍♀️
+        </div>
+
+        <h1 id="title">
+            Pori 华人一起运动
+        </h1>
+
+        <div class="names">
+            Qiqi · Zhuzhu · Menghua
+        </div>
+
+        <div class="hero-text" id="heroText">
+            一起运动<br>
+            一起认识朋友<br>
+            一起坚持下去
+        </div>
+
+        <div class="auth-buttons">
+
+            <button class="primary"
+                    onclick="registerUser()">
+                <span id="registerText">注册</span>
+            </button>
+
+            <button class="secondary"
+                    onclick="loginUser()">
+                <span id="loginText">登录</span>
+            </button>
+
+        </div>
+
     </div>
 
-    <div class="info">
-      Kiinalaisille Poriin ja lähialueille,<br>
-      jotka haluavat liikkua yhdessä ja pitää toisensa motivoituneina.
+
+    <!-- 社区 -->
+
+    <div class="section-title" id="communityTitle">
+        我们是谁？
     </div>
 
-  </div>
+    <div class="community">
+
+        <div class="community-title" id="communityHeadline">
+            Pori 华人运动社区
+        </div>
+
+        <div class="community-text" id="communityText">
+            为 Pori 及周边地区的华人提供一个轻松、友好的运动社区。
+            找到运动伙伴，一起开始，也一起坚持。
+        </div>
+
+    </div>
+
+
+    <!-- 运动项目 -->
+
+    <div class="section-title" id="activityTitle">
+        一起做什么？
+    </div>
+
+    <div class="activities">
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                🏃
+            </div>
+
+            <div class="activity-name" id="running">
+                跑步
+            </div>
+
+            <div class="activity-text" id="runningText">
+                找人一起跑
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                🏋️
+            </div>
+
+            <div class="activity-name" id="gym">
+                健身
+            </div>
+
+            <div class="activity-text" id="gymText">
+                一起去健身房
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                🧘
+            </div>
+
+            <div class="activity-name" id="yoga">
+                瑜伽
+            </div>
+
+            <div class="activity-text" id="yogaText">
+                找伙伴一起练
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                🚴
+            </div>
+
+            <div class="activity-name" id="cycling">
+                骑行
+            </div>
+
+            <div class="activity-text" id="cyclingText">
+                周末一起骑车
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                🏊
+            </div>
+
+            <div class="activity-name" id="swimming">
+                游泳
+            </div>
+
+            <div class="activity-text" id="swimmingText">
+                一起去游泳馆
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                ⚽
+            </div>
+
+            <div class="activity-name" id="other">
+                其他运动
+            </div>
+
+            <div class="activity-text" id="otherText">
+                找到兴趣相同的人
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer" id="footer">
+        Pori Chinese Move Together<br>
+        一起运动，一起坚持。
+    </div>
+
+</div>
+
+
+<script>
+
+const languages = {
+
+    zh: {
+
+        title: "Pori 华人一起运动",
+
+        heroText:
+        "一起运动<br>一起认识朋友<br>一起坚持下去",
+
+        register: "注册",
+        login: "登录",
+
+        communityTitle: "我们是谁？",
+
+        communityHeadline:
+        "Pori 华人运动社区",
+
+        communityText:
+        "为 Pori 及周边地区的华人提供一个轻松、友好的运动社区。找到运动伙伴，一起开始，也一起坚持。",
+
+        activityTitle:
+        "一起做什么？",
+
+        running: "跑步",
+        runningText: "找人一起跑",
+
+        gym: "健身",
+        gymText: "一起去健身房",
+
+        yoga: "瑜伽",
+        yogaText: "找伙伴一起练",
+
+        cycling: "骑行",
+        cyclingText: "周末一起骑车",
+
+        swimming: "游泳",
+        swimmingText: "一起去游泳馆",
+
+        other: "其他运动",
+        otherText: "找到兴趣相同的人",
+
+        footer:
+        "Pori Chinese Move Together<br>一起运动，一起坚持。",
+
+        loginAlert:
+        "登录功能即将上线！",
+
+        registerAlert:
+        "注册功能即将上线！"
+    },
+
+
+    fi: {
+
+        title:
+        "Pori Chinese Move Together",
+
+        heroText:
+        "Liikutaan yhdessä<br>Tavataan uusia ihmisiä<br>Pidetään toisemme liikkeessä",
+
+        register: "Rekisteröidy",
+        login: "Kirjaudu",
+
+        communityTitle:
+        "Keitä me olemme?",
+
+        communityHeadline:
+        "Pori kiinalaisten liikuntayhteisö",
+
+        communityText:
+        "Ystävällinen liikuntayhteisö Porin ja lähialueiden kiinalaisille. Löydä liikuntakavereita ja pysykää yhdessä aktiivisina.",
+
+        activityTitle:
+        "Mitä voimme tehdä yhdessä?",
+
+        running: "Juoksu",
+        runningText: "Lähde lenkille yhdessä",
+
+        gym: "Kuntosali",
+        gymText: "Mennään yhdessä salille",
+
+        yoga: "Jooga",
+        yogaText: "Harjoitellaan yhdessä",
+
+        cycling: "Pyöräily",
+        cyclingText: "Pyöräillään viikonloppuna",
+
+        swimming: "Uinti",
+        swimmingText: "Mennään yhdessä uimahalliin",
+
+        other: "Muu liikunta",
+        otherText: "Löydä samanhenkisiä ihmisiä",
+
+        footer:
+        "Pori Chinese Move Together<br>Liikutaan yhdessä, pysytään liikkeessä.",
+
+        loginAlert:
+        "Kirjautuminen tulee pian!",
+
+        registerAlert:
+        "Rekisteröityminen tulee pian!"
+    },
+
+
+    en: {
+
+        title:
+        "Pori Chinese Move Together",
+
+        heroText:
+        "Move together<br>Meet new people<br>Stay active together",
+
+        register: "Register",
+        login: "Log in",
+
+        communityTitle:
+        "Who are we?",
+
+        communityHeadline:
+        "Pori Chinese Sports Community",
+
+        communityText:
+        "A friendly sports community for Chinese people in Pori and nearby areas. Find exercise partners, get started together and stay motivated.",
+
+        activityTitle:
+        "What can we do together?",
+
+        running: "Running",
+        runningText: "Find running partners",
+
+        gym: "Gym",
+        gymText: "Go to the gym together",
+
+        yoga: "Yoga",
+        yogaText: "Practice together",
+
+        cycling: "Cycling",
+        cyclingText: "Weekend cycling",
+
+        swimming: "Swimming",
+        swimmingText: "Go swimming together",
+
+        other: "Other sports",
+        otherText: "Find people with similar interests",
+
+        footer:
+        "Pori Chinese Move Together<br>Move together, stay active together.",
+
+        loginAlert:
+        "Login is coming soon!",
+
+        registerAlert:
+        "Registration is coming soon!"
+    }
+
+};
+
+
+let currentLanguage = "zh";
+
+
+function setLanguage(lang) {
+
+    currentLanguage = lang;
+
+    document.getElementById("title").textContent =
+        languages[lang].title;
+
+    document.getElementById("heroText").innerHTML =
+        languages[lang].heroText;
+
+    document.getElementById("registerText").textContent =
+        languages[lang].register;
+
+    document.getElementById("loginText").textContent =
+        languages[lang].login;
+
+    document.getElementById("communityTitle").textContent =
+        languages[lang].communityTitle;
+
+    document.getElementById("communityHeadline").textContent =
+        languages[lang].communityHeadline;
+
+    document.getElementById("communityText").textContent =
+        languages[lang].communityText;
+
+    document.getElementById("activityTitle").textContent =
+        languages[lang].activityTitle;
+
+    document.getElementById("running").textContent =
+        languages[lang].running;
+
+    document.getElementById("runningText").textContent =
+        languages[lang].runningText;
+
+    document.getElementById("gym").textContent =
+        languages[lang].gym;
+
+    document.getElementById("gymText").textContent =
+        languages[lang].gymText;
+
+    document.getElementById("yoga").textContent =
+        languages[lang].yoga;
+
+    document.getElementById("yogaText").textContent =
+        languages[lang].yogaText;
+
+    document.getElementById("cycling").textContent =
+        languages[lang].cycling;
+
+    document.getElementById("cyclingText").textContent =
+        languages[lang].cyclingText;
+
+    document.getElementById("swimming").textContent =
+        languages[lang].swimming;
+
+    document.getElementById("swimmingText").textContent =
+        languages[lang].swimmingText;
+
+    document.getElementById("other").textContent =
+        languages[lang].other;
+
+    document.getElementById("otherText").textContent =
+        languages[lang].otherText;
+
+    document.getElementById("footer").innerHTML =
+        languages[lang].footer;
+
+    document.documentElement.lang = lang;
+}
+
+
+function loginUser() {
+
+    alert(
+        languages[currentLanguage].loginAlert
+    );
+
+}
+
+
+function registerUser() {
+
+    alert(
+        languages[currentLanguage].registerAlert
+    );
+
+}
+
+
+setLanguage("zh");
+
+</script>
 
 </body>
 </html>
